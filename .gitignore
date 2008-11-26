@@ -8,6 +8,7 @@ Thumbs.db
 config/*.sphinx.conf
 config/adapter.yml
 config/mailer.yml
+config/facebooker.yml
 doc/api/
 doc/app/
 db/*.db
