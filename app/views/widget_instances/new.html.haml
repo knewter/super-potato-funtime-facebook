@@ -1,0 +1,9 @@
+= title "New Widget Instance"
+%h3 Second, choose a top, left, and z-index
+
+- form_for [@potato_man, @widget_instance] do |f|
+  = f.hidden_field(:widget_id)
+  = f.text_field :top
+  = f.text_field :left
+  = f.text_field :z_index
+  = submit_tag

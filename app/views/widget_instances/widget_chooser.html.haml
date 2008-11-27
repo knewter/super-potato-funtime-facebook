@@ -1,0 +1,15 @@
+= title "New Widget Instance"
+%h3 First, pick your widget from the list
+
+%ul.widget-categories#widget-categories
+  - @widget_categories.each do |wc|
+    %li= link_to(wc.name, "#category-#{wc.name}")
+- @widget_categories.each do |wc|
+  %div{ :id => "category-#{wc.name}"}
+    .widget-picker-list 
+      - @widgets.select{|w| w.widget_category == wc}.each_slice(4) do |widgets|
+        .widget-picker-row
+          - widgets.each do |widget|
+            %span.available_widget= link_to image_tag(widget.image(:thumb), :id => widget.id), new_potato_man_widget_instance_path(:potato_man_id => @potato_man, :widget_id => widget.id), {:class => 'widget' }
+:javascript
+  jQuery("ul#widget-categories").tabs();

@@ -1,0 +1,12 @@
+- url = choose_theme_package_potato_man_path(:potato_man_id => potato_man_id, :theme_package_id => theme_package.id)
+.twocol
+  .left.col
+    %h5= link_to( theme_package.name, url )
+    - if theme_package.potato_background
+      .background
+        = link_to( image_tag(theme_package.potato_background.image.url), url )
+  .right.col
+    .widgets
+      %h5 Widgets
+      - theme_package.widgets.each do |widget|
+        = link_to(image_tag(widget.image.url(:thumb)), url)

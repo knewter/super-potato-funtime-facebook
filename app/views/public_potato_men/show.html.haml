@@ -1,0 +1,11 @@
+= title "Potato Man: #{@potato_man.name} - created by #{@potato_man.creator.nickname}"
+- content_for :sidebar do
+  = link_to "All Potato Men", public_potato_men_path, :class => 'button icon back'
+  - if admin?
+    %h4 Admin Options
+    = link_to "Remove this Potato Man", potato_man_path( @potato_man ), :method => :delete, :confirm => "Really remove this potato man?", :class => 'button icon remove'
+    = link_to "Feature this Potato Man", feature_potato_man_path( @potato_man ), :confirm => "Really feature this potato man?", :class => 'button icon add'
+  %hr
+  = render :partial => 'ratings/rate', :locals => { :asset => @potato_man }
+  
+= image_tag(@potato_man.preview_path)

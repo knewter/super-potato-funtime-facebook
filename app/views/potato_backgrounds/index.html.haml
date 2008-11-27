@@ -1,0 +1,7 @@
+= title "Potato Backgrounds"
+- content_for :sidebar do
+  = link_to "New Background", new_potato_background_path, :class => 'button icon add'
+
+%ul
+  - @potato_backgrounds.each do |potato_background|
+    %li= link_to( image_tag( potato_background.image.url(:thumb)), potato_background_path(potato_background) )

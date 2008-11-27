@@ -1,0 +1,18 @@
+- include_actions = local_assigns.include?(:include_actions) ? include_actions : false
+.twocol
+  .left.col
+    %h5= link_to( theme_package.name, theme_package_path(theme_package) )
+    - if theme_package.potato_background
+      .background
+        = image_tag theme_package.potato_background.image.url
+  .right.col
+    .widgets
+      %h5
+        Widgets
+        - if include_actions
+          (clicking will remove from this theme)
+      - theme_package.widgets.each do |widget|
+        - if include_actions
+          = link_to(image_tag(widget.image.url(:thumb)), remove_widget_theme_package_path(:theme_package_id => theme_package.id, :widget_id => widget.id))
+        - else
+          = image_tag(widget.image.url(:thumb))

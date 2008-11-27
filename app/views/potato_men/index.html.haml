@@ -1,0 +1,11 @@
+= title "Your Potato Men"
+- content_for :sidebar do
+  = link_to "New Potato Man", new_potato_man_path, :class => 'button icon add'
+.potato-men
+  - if @potato_men.empty?
+    %span You have not created any potato men! 
+    %span= link_to("You should make one now", new_potato_man_path)
+  - @potato_men.each do |potato_man|
+    .potato-man.grid-item
+      = link_to image_tag(potato_man.thumbnail_path), potato_man_path(potato_man)
+      %h5= link_to potato_man.name, potato_man_path(potato_man)

@@ -1,0 +1,8 @@
+= title "Theme Packages"
+- content_for :sidebar do
+  = link_to "New Theme Package", new_theme_package_path, :class => 'button icon add'
+
+%ul.theme-packages
+  - @theme_packages.each do |theme_package|
+    %li.grid-item.theme-package
+      = render :partial => 'theme_packages/theme_package', :locals => { :theme_package => theme_package }

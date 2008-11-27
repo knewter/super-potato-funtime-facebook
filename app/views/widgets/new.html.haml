@@ -1,0 +1,6 @@
+= title "New Widget"
+- form_for @widget, :html => { :multipart => true } do |f|
+  = f.text_field :name
+  = f.file_field :image
+  = f.select :widget_category_id, @widget_categories
+  = submit_tag

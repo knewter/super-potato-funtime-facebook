@@ -1,0 +1,18 @@
+<%= title "Home" %>
+<div class='featured'>
+  <%= image_tag PotatoMan.featured_potato_man.featured_path, :alt => 'Featured Potato' %>
+  <h4><%= "Featured: " + PotatoMan.featured_potato_man.name -%></h4>
+</div>
+<%= image_tag 'home_page_text.png' %>
+<br />
+SUPER POTATO FUNTIME help you build potato!  You get much lucky!
+
+<br />
+<br />
+<h3>Newest Potato Men</h3>
+<% @recent_potato_men.each do |potato_man| %>
+  <div class='potato-man.grid-item'>
+    <%= link_to( image_tag( potato_man.thumbnail_path, :alt => potato_man.name ), public_potato_man_path( potato_man)) %>
+    <h5><%= potato_man.name -%></h5>
+  </div>
+<% end %>

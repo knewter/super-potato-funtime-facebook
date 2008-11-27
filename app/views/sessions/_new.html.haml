@@ -1,0 +1,7 @@
+.login-container
+  - form_tag session_url do
+    %span.open-id-url
+      = text_field_tag(:openid_identifier)
+      = submit_tag 'Login'
+
+%script{ 'type' => "text/javascript", :id => '__openidselector', :src  => "https://www.idselector.com/selector/337b199b1809a0f0f86fed60ff5fe4966d123c6f" }

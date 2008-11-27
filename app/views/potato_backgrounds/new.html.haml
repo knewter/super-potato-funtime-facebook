@@ -1,0 +1,5 @@
+= title "Upload a new Potato Background"
+- form_for @potato_background, :html => { :multipart => true } do |f|
+  = f.text_field :name
+  = f.file_field :image
+  = submit_tag

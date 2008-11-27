@@ -1,0 +1,6 @@
+= title "New PotatoMan, step 2"
+%h3 Next, choose a background image or upload your own
+
+%ul
+  - @potato_backgrounds.each do |potato_background|
+    %li= link_to(image_tag(potato_background.image.url(:thumb)), choose_background_potato_man_path(:potato_background_id => potato_background.id))

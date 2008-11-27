@@ -1,0 +1,8 @@
+#update-potato-man-form
+  - remote_form_for :potato_man, :html => { :method => :put }, :before => "build_widget_positions();" do |f|
+    %p 
+      %label Potato Name:
+      = f.text_field :name, :size => 12
+    %p
+      = submit_tag "Save changes to your potato man!"
+

@@ -1,0 +1,29 @@
+= title "Potato Man: #{@potato_man.name}"
+- content_for :sidebar do
+  = link_to "Back to your potatoes, dude", potato_men_path, :class => 'button icon back'
+  .note
+    Now just add all the 'widgets' you want to (such as eyes, a nose, a mouth, etc.) to your potato man, and drag them around.  You can move them to the foreground/background by clicking on a widget and using the z-index controls beneath.
+  %hr
+  #widget-controls
+    %h3 Selected Widget Controls
+    %label Z-Index
+    %span#control_z_index 
+      %input{:type => "submit", :id => "increase_z_index", :value => "+"}
+      %input{:type => "submit", :id => "decrease_z_index", :value => " - "}
+  %hr
+  = link_to "Add Widget Instance from this theme", new_potato_man_widget_instance_path(@potato_man), :class => 'button icon add new_widget_instance'
+  = link_to "Add Widget Instance from all available widgets", new_potato_man_widget_instance_path(@potato_man, :all_widgets => true), :class => 'button icon add new_widget_instance'
+  = link_to_remote('Remove All Widgets', :url => {:action => "remove_all_widgets", :controller => "potato_men", :id => @potato_man.id}, :complete => "remove_all_widgets();", :confirm => "Really remove all widgets from your potato man?", :html => { :class => 'button icon remove' })
+  %a#remove-selected-widget.button.icon.remove{:href => "#"} Remove Selected Widget
+  = link_to "Remove this Potato Man", potato_man_path( @potato_man ), :method => :delete, :confirm => "Really remove this potato man?", :class => 'button icon remove'
+  = render :partial => "edit", :layout => false
+
+.potato_man{ :style => 'position: relative' }
+  .background
+    = image_tag(@potato_man.potato_background.image.url)
+  .widget-instances
+    - @potato_man.widget_instances.each do |widget_instance|
+      .widget_instance{ :id => "widget_instance_#{widget_instance.id}", :style => "top: #{widget_instance.top}px; left: #{widget_instance.left}px; z-index: #{widget_instance.z_index}; position: absolute;" }
+        = image_tag widget_instance.widget.image.url, :class => 'widget', :id => widget_instance.id
+#widget-selection
+%input{:type => 'hidden', :id => 'potato_man_id', :value => @potato_man.id }

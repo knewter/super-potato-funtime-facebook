@@ -1,0 +1,7 @@
+= title "Theme Package: " + @theme_package.name
+- content_for :sidebar do
+  = link_to "Pick Background", choose_background_theme_package_path(@theme_package), :class => 'button icon add'
+  = link_to "Add Widget", add_widget_theme_package_path(@theme_package), :class => 'button icon add'
+
+.grid-item.theme-package
+  = render :partial => 'theme_packages/theme_package', :locals => { :theme_package => @theme_package, :include_actions => true }

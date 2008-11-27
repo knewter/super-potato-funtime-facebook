@@ -1,0 +1,17 @@
+= title "Home"
+=# image_tag 'example-potato.png', :style => 'float: right'
+.featured
+  = image_tag PotatoMan.featured_potato_man.featured_path, :alt => 'Featured Potato'
+  %h4= "Featured: " + PotatoMan.featured_potato_man.name
+= image_tag 'home_page_text.png'
+%br
+SUPER POTATO FUNTIME help you build potato!  You get much lucky!
+
+%br
+%br
+%h3 Newest Potato Men
+- @recent_potato_men.each do |potato_man|
+  .potato-man.grid-item
+    = link_to( image_tag( potato_man.thumbnail_path, :alt => potato_man.name ), public_potato_man_path( potato_man))
+    %h5= potato_man.name
+

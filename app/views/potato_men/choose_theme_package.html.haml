@@ -1,0 +1,7 @@
+= title "New PotatoMan, step 2"
+%h3 Next, choose a theme.
+
+%ul.theme-packages
+  - @theme_packages.each do |theme_package|
+    %li.grid-item.theme-package
+      = render :partial => 'potato_men/theme_package_to_choose', :locals => { :theme_package => theme_package, :potato_man_id => @potato_man.id }

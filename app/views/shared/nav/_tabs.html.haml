@@ -1,0 +1,8 @@
+#hd
+  %ul#base-links
+    %li= create_tab("Home", '/')
+    %li= create_tab("Build a Potato Man", new_potato_man_path)
+    %li= create_tab("Your Potato Men", potato_men_path)
+    %li= create_tab("Look at Potato Men", public_potato_men_path)
+    %li= create_tab("Highest Rated Potato Men", popular_public_potato_men_path(:rating => 5))
+  .clear

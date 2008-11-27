@@ -1,0 +1,6 @@
+= title "Theme Package: #{@theme_package.name}"
+%h3 Choose a background image for your theme package
+
+%ul
+  - @potato_backgrounds.each do |potato_background|
+    %li= link_to(image_tag(potato_background.image.url(:thumb)), choose_background_theme_package_path(:theme_package_id => @theme_package.id, :potato_background_id => potato_background.id))
