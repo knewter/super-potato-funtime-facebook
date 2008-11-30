@@ -5,7 +5,7 @@ class PotatoChuckPublisher < Facebooker::Rails::Publisher
     send_as :user_action
     from potato_chuck.chucker.facebook_session.user
     data :defender => name(potato_chuck.chuckee),
-         :images => [image(potato_chuck.potato_man.preview_path, public_potato_man_url(potato_chuck.potato_man))]
+         :images => [image(potato_chuck.potato_man.thumbnail_path, public_potato_man_url(potato_chuck.potato_man))]
   end
 
   def potato_chuck_feed_template
