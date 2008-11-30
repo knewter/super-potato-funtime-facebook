@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :invitations
   map.resources :pages
   map.resources :potato_backgrounds
   map.resources :widgets

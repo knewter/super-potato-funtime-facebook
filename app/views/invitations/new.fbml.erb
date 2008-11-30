@@ -1,0 +1,12 @@
+<fb:fbml>
+  <fb:request-form
+   action="<%= invitations_path -%>"
+   method="POST"
+   invite="true"
+   type="Super Potato Funtime"
+   content="Potatoes.  Install them.  Or I kill you." >
+     <fb:multi-friend-selector
+      showborder="false"
+      actiontext="Invite your friends to use Super Potato Funtime" />
+  </fb:request-form>
+</fb:fbml>
