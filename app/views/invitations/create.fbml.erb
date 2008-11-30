@@ -1,6 +1,8 @@
 <fb:fbml>
-  <% for user in @sent_to_ids %>
-    <%= user %> <br />
+  <% for id in @sent_to_ids %>
+    <fb:profile-pic uid="<%= id -%>" />
+    <fb:name uid="<%= id -%>" />
+    <br />
   <% end %>
   <%= link_to "Send another invitation", new_invitation_path %>
 </fb:fbml>
