@@ -1,0 +1,8 @@
+<% if @potato_man %>
+  <% facebook_form_for @potato_chuck do |f| %>
+    <%= hidden_field_tag(:potato_man_id, @potato_man.id) %> 
+    <%= f.text image_tag(@potato_man.thumbnail_path), :label => "Potato Man" %>
+    <%= f.multi_friend_input :label => "Chuckee" %>
+    <%= f.buttons "Chuck!" %>
+  <% end %>
+<% end %>

@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :invitations
+  map.resources :potato_chucks
+
   map.resources :pages
+
   map.resources :potato_backgrounds
   map.resources :widgets
   map.resources :potato_men, :member => [:choose_theme_package, :feature] do |potato_man|

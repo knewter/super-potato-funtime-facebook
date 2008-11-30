@@ -10,4 +10,6 @@
   <%= render :partial => 'ratings/rate.html.erb', :locals => { :asset => @potato_man } %>
 <% end %>
   
+<%= link_to "Chuck this potato at your friends!", new_potato_chuck_path(:potato_man_id => @potato_man.id) %>
+<br />
 <%= image_tag(@potato_man.preview_path) %>

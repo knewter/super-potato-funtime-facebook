@@ -85,6 +85,4 @@ class PotatoMan < ActiveRecord::Base
   def potato_background
     theme_package.potato_background
   end
-
 end
-

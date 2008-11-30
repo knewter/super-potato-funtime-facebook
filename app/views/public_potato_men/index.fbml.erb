@@ -1,0 +1,22 @@
+<%= title "Look at all the potatoes" %>
+<% content_for :sidebar do %>
+  <%= link_to "newest",  public_potato_men_path, :class => 'button' %>
+  <%= link_to "5-stars", popular_public_potato_men_path(:rating => 5), :class => 'button' %>
+  <%= link_to "4-stars", popular_public_potato_men_path(:rating => 4), :class => 'button' %>
+  <%= link_to "3-stars", popular_public_potato_men_path(:rating => 3), :class => 'button' %>
+  <%= link_to "2-stars", popular_public_potato_men_path(:rating => 2), :class => 'button' %>
+  <%= link_to "1-stars", popular_public_potato_men_path(:rating => 1), :class => 'button' %>
+<% end %>
+
+<div class='potato-men'>
+  <% @potato_men.each do |potato_man| %>
+    <div class='potato-man grid-item'>
+      <%= link_to image_tag(potato_man.thumbnail_path), public_potato_man_path(potato_man) %>
+      <h5><%= link_to potato_man.name, public_potato_man_path(potato_man) -%></h5>
+    </div>
+  <% end %>
+</div>
+
+<% if @potato_men.respond_to?(:total_pages) %>
+  <%= will_paginate @potato_men %>
+<% end %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  facebook_user_id: 1
+  session_key: abcd
+
+two:
+  facebook_user_id: 2
+  session_key: efgh

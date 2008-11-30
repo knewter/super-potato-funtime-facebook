@@ -1,0 +1,2 @@
+module PotatoChucksHelper
+end

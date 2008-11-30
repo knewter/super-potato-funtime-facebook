@@ -15,4 +15,8 @@ module ApplicationHelper
       string
     end
   end
+
+  def name user, options={}
+    fb_name(user, { :ifcantsee => "A hidden potato chucker" }.merge(options))
+  end
 end

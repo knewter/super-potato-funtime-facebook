@@ -1,0 +1,12 @@
+<fb:fbml version="1.1">
+  <% fb_dashboard do %>
+    <%= fb_action "Invite your friends", new_invitation_path %>
+  <% end %>
+  <% fb_tabs do %>
+    <%= fb_tab_item "Home", "/", :selected => (params[:controller] == "pages" && params[:action] == 'home') %>
+    <%= fb_tab_item "Potato Men", public_potato_men_path, :selected => (params[:controller] == "public_potato_men") %>
+    <%= fb_tab_item "Help &amp; Feedback", fb_about_url, :align => "right" %>
+  <% end %>
+  <%= facebook_messages %>
+  <%= yield %>
+</fb:fbml>

@@ -1,12 +1,7 @@
-<fb:fbml>
-  <fb:request-form
-   action="<%= invitations_path -%>"
-   method="POST"
-   invite="true"
-   type="Super Potato Funtime"
-   content="Potatoes.  Install them.  Or I kill you." >
-     <fb:multi-friend-selector
-      showborder="false"
-      actiontext="Invite your friends to use Super Potato Funtime" />
-  </fb:request-form>
-</fb:fbml>
+<fb:add-section-button section="profile" />
+<% fb_multi_friend_request("Super Potato Funtime",
+     "Invite your friends to use Super Potato Funtime",
+     invitations_path) do %>
+       Potatoes.  Install them.  Or I kill you.
+       <%= fb_req_choice("Potato!", new_invitation_url(:from => @from_user_id, :canvas => true)) %>
+<% end %> 
